@@ -1,0 +1,376 @@
+[
+  {
+    "id": "r-porridge", "titre": "Porridge aux dattes", "photoUrl": "assets/images/porridge.jpg",
+    "tempsPreparationMin": 10, "portions": 1, "kcalParPortion": 460,
+    "regimesCompatibles": ["vegetarien"], "cuisine": "Orientale", "equipements": ["plaque", "casserole"],
+    "lignes": [
+      {"ingredient": "avoine", "quantite": 60, "unite": "g"},
+      {"ingredient": "lait", "quantite": 250, "unite": "ml"},
+      {"ingredient": "datte", "quantite": 40, "unite": "g"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Versez le lait et les flocons d’avoine dans une casserole."},
+      {"ordre": 2, "instruction": "Faites cuire à feu doux en remuant, jusqu’à ce que le porridge épaississe.", "dureeMinuteur": 5},
+      {"ordre": 3, "instruction": "Coupez les dattes en morceaux et ajoutez-les avant de servir."}
+    ]
+  },
+  {
+    "id": "r-yaourt-avoine", "titre": "Yaourt, flocons d’avoine et dattes", "photoUrl": "assets/images/yaourt.jpg",
+    "tempsPreparationMin": 5, "portions": 1, "kcalParPortion": 430,
+    "regimesCompatibles": ["vegetarien"], "cuisine": "Méditerranéenne", "equipements": [],
+    "lignes": [
+      {"ingredient": "yaourt", "quantite": 1, "unite": "pot"},
+      {"ingredient": "avoine", "quantite": 40, "unite": "g"},
+      {"ingredient": "datte", "quantite": 30, "unite": "g"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Versez le yaourt dans un bol."},
+      {"ordre": 2, "instruction": "Ajoutez les flocons d’avoine et les dattes coupées en morceaux."}
+    ]
+  },
+  {
+    "id": "r-omelette", "titre": "Omelette aux poivrons", "photoUrl": "",
+    "tempsPreparationMin": 15, "portions": 1, "kcalParPortion": 420,
+    "regimesCompatibles": ["vegetarien", "sansGluten"], "cuisine": "Française", "equipements": ["plaque", "poele"],
+    "lignes": [
+      {"ingredient": "oeuf", "quantite": 2, "unite": "pièce"},
+      {"ingredient": "poivron", "quantite": 60, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 30, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 5, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Coupez le poivron et l’oignon en petits dés."},
+      {"ordre": 2, "instruction": "Faites-les revenir dans la poêle avec l’huile d’olive.", "dureeMinuteur": 5},
+      {"ordre": 3, "instruction": "Battez les œufs, versez-les sur les légumes et laissez prendre à feu doux.", "dureeMinuteur": 3}
+    ]
+  },
+  {
+    "id": "r-tartine-cacahuete", "titre": "Tartine au beurre de cacahuète et banane", "photoUrl": "",
+    "tempsPreparationMin": 5, "portions": 1, "kcalParPortion": 450,
+    "regimesCompatibles": ["vegetarien", "vegane"], "cuisine": "Américaine", "equipements": [],
+    "lignes": [
+      {"ingredient": "pain-complet", "quantite": 80, "unite": "g"},
+      {"ingredient": "beurre-cacahuete", "quantite": 30, "unite": "g"},
+      {"ingredient": "banane", "quantite": 1, "unite": "pièce"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Tartinez le pain avec le beurre de cacahuète."},
+      {"ordre": 2, "instruction": "Ajoutez la banane coupée en rondelles."}
+    ]
+  },
+  {
+    "id": "r-fruits-avoine", "titre": "Bol de fruits et flocons d’avoine", "photoUrl": "",
+    "tempsPreparationMin": 5, "portions": 1, "kcalParPortion": 400,
+    "regimesCompatibles": ["vegetarien", "vegane"], "cuisine": "Méditerranéenne", "equipements": [],
+    "lignes": [
+      {"ingredient": "avoine", "quantite": 50, "unite": "g"},
+      {"ingredient": "banane", "quantite": 1, "unite": "pièce"},
+      {"ingredient": "orange", "quantite": 1, "unite": "pièce"},
+      {"ingredient": "datte", "quantite": 30, "unite": "g"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Coupez la banane, l’orange et les dattes en morceaux."},
+      {"ordre": 2, "instruction": "Mélangez les fruits avec les flocons d’avoine dans un bol."}
+    ]
+  },
+  {
+    "id": "r-curry", "titre": "Curry de pois chiches et riz", "photoUrl": "assets/images/curry.jpg",
+    "tempsPreparationMin": 30, "portions": 1, "kcalParPortion": 780,
+    "regimesCompatibles": ["vegetarien", "sansGluten"], "cuisine": "Indienne",
+    "equipements": ["plaque", "casserole", "poele", "mixeur"],
+    "lignes": [
+      {"ingredient": "pois-chiche", "quantite": 200, "unite": "g"},
+      {"ingredient": "riz", "quantite": 80, "unite": "g"},
+      {"ingredient": "tomate", "quantite": 120, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 80, "unite": "g"},
+      {"ingredient": "yaourt", "quantite": 1, "unite": "pot"},
+      {"ingredient": "cumin", "quantite": 5, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites cuire le riz dans une casserole d’eau salée.", "dureeMinuteur": 12},
+      {"ordre": 2, "instruction": "Émincez l’oignon et faites-le dorer dans la poêle avec l’huile d’olive.", "dureeMinuteur": 5},
+      {"ordre": 3, "instruction": "Ajoutez le cumin et les pois chiches égouttés, puis remuez 2 minutes."},
+      {"ordre": 4, "instruction": "Mixez les tomates, puis versez-les dans la poêle avec les oignons.", "dureeMinuteur": 10},
+      {"ordre": 5, "instruction": "Hors du feu, ajoutez le yaourt nature et mélangez doucement."},
+      {"ordre": 6, "instruction": "Servez le curry avec le riz."}
+    ]
+  },
+  {
+    "id": "r-penne-thon", "titre": "Penne au thon et tomates", "photoUrl": "assets/images/penne.jpg",
+    "tempsPreparationMin": 20, "portions": 1, "kcalParPortion": 720,
+    "regimesCompatibles": [], "cuisine": "Italienne", "equipements": ["plaque", "casserole", "poele"],
+    "lignes": [
+      {"ingredient": "penne", "quantite": 125, "unite": "g"},
+      {"ingredient": "thon", "quantite": 160, "unite": "g"},
+      {"ingredient": "tomate", "quantite": 120, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 50, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites cuire les penne dans une grande casserole d’eau salée.", "dureeMinuteur": 11},
+      {"ordre": 2, "instruction": "Faites revenir l’oignon émincé dans la poêle avec l’huile d’olive.", "dureeMinuteur": 4},
+      {"ordre": 3, "instruction": "Ajoutez les tomates coupées en dés et laissez compoter.", "dureeMinuteur": 6},
+      {"ordre": 4, "instruction": "Égouttez le thon, ajoutez-le à la sauce, puis mélangez avec les penne."}
+    ]
+  },
+  {
+    "id": "r-wrap-poulet", "titre": "Wrap au poulet et crudités", "photoUrl": "assets/images/wrap.jpg",
+    "tempsPreparationMin": 20, "portions": 1, "kcalParPortion": 690,
+    "regimesCompatibles": [], "cuisine": "Mexicaine", "equipements": ["plaque", "poele"],
+    "lignes": [
+      {"ingredient": "tortilla", "quantite": 2, "unite": "pièce"},
+      {"ingredient": "poulet", "quantite": 150, "unite": "g"},
+      {"ingredient": "concombre", "quantite": 1, "unite": "pièce"},
+      {"ingredient": "tomate", "quantite": 50, "unite": "g"},
+      {"ingredient": "cumin", "quantite": 2, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 5, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Coupez le poulet en lanières et saupoudrez-le de cumin."},
+      {"ordre": 2, "instruction": "Faites dorer le poulet dans la poêle avec l’huile d’olive.", "dureeMinuteur": 8},
+      {"ordre": 3, "instruction": "Coupez le concombre et la tomate en bâtonnets."},
+      {"ordre": 4, "instruction": "Garnissez les tortillas de poulet et de crudités, puis roulez-les."}
+    ]
+  },
+  {
+    "id": "r-salade-pois-chiches", "titre": "Salade de pois chiches au cumin", "photoUrl": "",
+    "tempsPreparationMin": 15, "portions": 1, "kcalParPortion": 630,
+    "regimesCompatibles": ["vegetarien", "vegane", "sansGluten"], "cuisine": "Orientale", "equipements": [],
+    "lignes": [
+      {"ingredient": "pois-chiche", "quantite": 200, "unite": "g"},
+      {"ingredient": "concombre", "quantite": 1, "unite": "pièce"},
+      {"ingredient": "tomate", "quantite": 80, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 40, "unite": "g"},
+      {"ingredient": "cumin", "quantite": 3, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Rincez et égouttez les pois chiches."},
+      {"ordre": 2, "instruction": "Coupez le concombre, la tomate et l’oignon en petits dés."},
+      {"ordre": 3, "instruction": "Mélangez le tout avec l’huile d’olive et le cumin."}
+    ]
+  },
+  {
+    "id": "r-poulet-saute", "titre": "Poulet sauté aux poivrons et riz", "photoUrl": "assets/images/sautee.jpg",
+    "tempsPreparationMin": 25, "portions": 1, "kcalParPortion": 720,
+    "regimesCompatibles": ["sansGluten"], "cuisine": "Asiatique", "equipements": ["plaque", "casserole", "poele"],
+    "lignes": [
+      {"ingredient": "poulet", "quantite": 150, "unite": "g"},
+      {"ingredient": "poivron", "quantite": 150, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 80, "unite": "g"},
+      {"ingredient": "riz", "quantite": 80, "unite": "g"},
+      {"ingredient": "cumin", "quantite": 3, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites cuire le riz dans une casserole d’eau salée.", "dureeMinuteur": 12},
+      {"ordre": 2, "instruction": "Coupez le poulet, le poivron et l’oignon en lanières."},
+      {"ordre": 3, "instruction": "Faites sauter le poulet à feu vif dans la poêle avec l’huile d’olive.", "dureeMinuteur": 6},
+      {"ordre": 4, "instruction": "Ajoutez les légumes et le cumin, puis servez avec le riz.", "dureeMinuteur": 5}
+    ]
+  },
+  {
+    "id": "r-ojja", "titre": "Ojja aux poivrons", "photoUrl": "",
+    "tempsPreparationMin": 25, "portions": 1, "kcalParPortion": 640,
+    "regimesCompatibles": ["vegetarien", "sansGluten"], "cuisine": "Orientale", "equipements": ["plaque", "poele"],
+    "lignes": [
+      {"ingredient": "tomate", "quantite": 150, "unite": "g"},
+      {"ingredient": "poivron", "quantite": 100, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 40, "unite": "g"},
+      {"ingredient": "oeuf", "quantite": 2, "unite": "pièce"},
+      {"ingredient": "cumin", "quantite": 2, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites revenir l’oignon et le poivron dans la poêle avec l’huile d’olive.", "dureeMinuteur": 5},
+      {"ordre": 2, "instruction": "Ajoutez les tomates en dés et le cumin, puis laissez mijoter.", "dureeMinuteur": 10},
+      {"ordre": 3, "instruction": "Cassez les œufs dans la sauce et laissez-les prendre à couvert.", "dureeMinuteur": 4}
+    ]
+  },
+  {
+    "id": "r-penne-tomate", "titre": "Penne à la tomate et au cumin", "photoUrl": "",
+    "tempsPreparationMin": 20, "portions": 1, "kcalParPortion": 650,
+    "regimesCompatibles": ["vegetarien", "vegane"], "cuisine": "Italienne", "equipements": ["plaque", "casserole", "poele"],
+    "lignes": [
+      {"ingredient": "penne", "quantite": 125, "unite": "g"},
+      {"ingredient": "tomate", "quantite": 100, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 40, "unite": "g"},
+      {"ingredient": "cumin", "quantite": 1, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites cuire les penne dans une grande casserole d’eau salée.", "dureeMinuteur": 11},
+      {"ordre": 2, "instruction": "Faites revenir l’oignon dans la poêle, ajoutez les tomates et le cumin.", "dureeMinuteur": 8},
+      {"ordre": 3, "instruction": "Mélangez la sauce avec les penne égouttées."}
+    ]
+  },
+  {
+    "id": "r-riz-oignons", "titre": "Riz pilaf aux oignons et au cumin", "photoUrl": "",
+    "tempsPreparationMin": 25, "portions": 1, "kcalParPortion": 660,
+    "regimesCompatibles": ["vegetarien", "vegane", "sansGluten"], "cuisine": "Orientale", "equipements": ["plaque", "casserole"],
+    "lignes": [
+      {"ingredient": "riz", "quantite": 90, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 80, "unite": "g"},
+      {"ingredient": "cumin", "quantite": 2, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites dorer l’oignon émincé dans la casserole avec l’huile d’olive.", "dureeMinuteur": 5},
+      {"ordre": 2, "instruction": "Ajoutez le riz et le cumin, remuez, puis couvrez d’eau.", "dureeMinuteur": 15},
+      {"ordre": 3, "instruction": "Laissez reposer à couvert avant de servir."}
+    ]
+  },
+  {
+    "id": "r-riz-au-lait", "titre": "Riz au lait et aux dattes", "photoUrl": "",
+    "tempsPreparationMin": 30, "portions": 1, "kcalParPortion": 600,
+    "regimesCompatibles": ["vegetarien", "sansGluten"], "cuisine": "Orientale", "equipements": ["plaque", "casserole"],
+    "lignes": [
+      {"ingredient": "riz", "quantite": 60, "unite": "g"},
+      {"ingredient": "lait", "quantite": 250, "unite": "ml"},
+      {"ingredient": "datte", "quantite": 40, "unite": "g"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Portez le lait à frémissement dans une casserole."},
+      {"ordre": 2, "instruction": "Ajoutez le riz et laissez cuire à feu doux en remuant souvent.", "dureeMinuteur": 25},
+      {"ordre": 3, "instruction": "Servez avec les dattes coupées en morceaux."}
+    ]
+  },
+  {
+    "id": "r-riz-pois-chiches", "titre": "Riz aux pois chiches et au cumin", "photoUrl": "",
+    "tempsPreparationMin": 25, "portions": 1, "kcalParPortion": 680,
+    "regimesCompatibles": ["vegetarien", "vegane", "sansGluten"], "cuisine": "Orientale", "equipements": ["plaque", "casserole"],
+    "lignes": [
+      {"ingredient": "riz", "quantite": 80, "unite": "g"},
+      {"ingredient": "pois-chiche", "quantite": 150, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 60, "unite": "g"},
+      {"ingredient": "cumin", "quantite": 3, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites dorer l’oignon dans la casserole avec l’huile d’olive.", "dureeMinuteur": 5},
+      {"ordre": 2, "instruction": "Ajoutez le riz, le cumin et deux fois son volume d’eau.", "dureeMinuteur": 15},
+      {"ordre": 3, "instruction": "Incorporez les pois chiches égouttés et réchauffez 2 minutes."}
+    ]
+  },
+  {
+    "id": "r-pizza-thon", "titre": "Pizza express au thon", "photoUrl": "",
+    "tempsPreparationMin": 25, "portions": 1, "kcalParPortion": 650,
+    "regimesCompatibles": [], "cuisine": "Italienne", "equipements": ["four"],
+    "lignes": [
+      {"ingredient": "pate-pizza", "quantite": 1, "unite": "pièce"},
+      {"ingredient": "thon", "quantite": 80, "unite": "g"},
+      {"ingredient": "tomate", "quantite": 100, "unite": "g"},
+      {"ingredient": "fromage-rape", "quantite": 50, "unite": "g"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Préchauffez le four à 220 °C."},
+      {"ordre": 2, "instruction": "Étalez la pâte, garnissez-la de tomates, de thon et de fromage."},
+      {"ordre": 3, "instruction": "Faites cuire au four.", "dureeMinuteur": 15}
+    ]
+  },
+  {
+    "id": "r-nouilles-cacahuete", "titre": "Nouilles sautées sauce cacahuète", "photoUrl": "",
+    "tempsPreparationMin": 25, "portions": 1, "kcalParPortion": 660,
+    "regimesCompatibles": ["vegetarien", "vegane"], "cuisine": "Asiatique", "equipements": ["plaque", "casserole", "poele"],
+    "lignes": [
+      {"ingredient": "nouilles", "quantite": 100, "unite": "g"},
+      {"ingredient": "beurre-cacahuete", "quantite": 30, "unite": "g"},
+      {"ingredient": "poivron", "quantite": 80, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 40, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites cuire les nouilles dans l’eau bouillante.", "dureeMinuteur": 4},
+      {"ordre": 2, "instruction": "Faites sauter le poivron et l’oignon dans la poêle.", "dureeMinuteur": 5},
+      {"ordre": 3, "instruction": "Ajoutez les nouilles et le beurre de cacahuète délayé dans un peu d’eau."}
+    ]
+  },
+  {
+    "id": "r-mechouia", "titre": "Salade méchouia à l’aubergine", "photoUrl": "",
+    "tempsPreparationMin": 25, "portions": 1, "kcalParPortion": 680,
+    "regimesCompatibles": ["vegetarien", "vegane", "sansGluten"], "cuisine": "Orientale", "equipements": ["plaque", "poele"],
+    "lignes": [
+      {"ingredient": "aubergine", "quantite": 200, "unite": "g"},
+      {"ingredient": "poivron", "quantite": 100, "unite": "g"},
+      {"ingredient": "tomate", "quantite": 100, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites griller l’aubergine, le poivron et la tomate dans la poêle.", "dureeMinuteur": 12},
+      {"ordre": 2, "instruction": "Pelez les légumes, puis hachez-les finement."},
+      {"ordre": 3, "instruction": "Assaisonnez avec l’huile d’olive."}
+    ]
+  },
+  {
+    "id": "r-lentilles", "titre": "Soupe de lentilles corail", "photoUrl": "assets/images/lentilles.jpg",
+    "tempsPreparationMin": 35, "portions": 1, "kcalParPortion": 540,
+    "regimesCompatibles": ["vegetarien", "vegane", "sansGluten"], "cuisine": "Orientale", "equipements": ["plaque", "casserole"],
+    "lignes": [
+      {"ingredient": "lentilles", "quantite": 100, "unite": "g"},
+      {"ingredient": "carotte", "quantite": 80, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 50, "unite": "g"},
+      {"ingredient": "tomate", "quantite": 80, "unite": "g"},
+      {"ingredient": "cumin", "quantite": 3, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites revenir l’oignon et la carotte en dés dans la casserole.", "dureeMinuteur": 5},
+      {"ordre": 2, "instruction": "Ajoutez les lentilles rincées, la tomate, le cumin et 50 cl d’eau."},
+      {"ordre": 3, "instruction": "Laissez cuire à feu doux jusqu’à ce que les lentilles fondent.", "dureeMinuteur": 20}
+    ]
+  },
+  {
+    "id": "r-grecque", "titre": "Salade grecque et pain complet", "photoUrl": "assets/images/grecque.jpg",
+    "tempsPreparationMin": 15, "portions": 1, "kcalParPortion": 610,
+    "regimesCompatibles": ["vegetarien"], "cuisine": "Méditerranéenne", "equipements": [],
+    "lignes": [
+      {"ingredient": "tomate", "quantite": 150, "unite": "g"},
+      {"ingredient": "concombre", "quantite": 1, "unite": "pièce"},
+      {"ingredient": "feta", "quantite": 80, "unite": "g"},
+      {"ingredient": "olives", "quantite": 30, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 30, "unite": "g"},
+      {"ingredient": "pain-complet", "quantite": 80, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Coupez la tomate, le concombre et l’oignon."},
+      {"ordre": 2, "instruction": "Ajoutez la feta en cubes et les olives."},
+      {"ordre": 3, "instruction": "Arrosez d’huile d’olive et servez avec le pain complet."}
+    ]
+  },
+  {
+    "id": "r-chili", "titre": "Chili sin carne", "photoUrl": "assets/images/chili.jpg",
+    "tempsPreparationMin": 40, "portions": 1, "kcalParPortion": 640,
+    "regimesCompatibles": ["vegetarien", "vegane", "sansGluten"], "cuisine": "Mexicaine", "equipements": ["plaque", "casserole"],
+    "lignes": [
+      {"ingredient": "haricots-rouges", "quantite": 200, "unite": "g"},
+      {"ingredient": "tomate", "quantite": 120, "unite": "g"},
+      {"ingredient": "oignon", "quantite": 60, "unite": "g"},
+      {"ingredient": "poivron", "quantite": 80, "unite": "g"},
+      {"ingredient": "cumin", "quantite": 3, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites revenir l’oignon et le poivron dans la casserole.", "dureeMinuteur": 5},
+      {"ordre": 2, "instruction": "Ajoutez les tomates, le cumin et les haricots égouttés.", "dureeMinuteur": 25},
+      {"ordre": 3, "instruction": "Rectifiez l’assaisonnement et servez chaud."}
+    ]
+  },
+  {
+    "id": "r-dorade", "titre": "Dorade grillée et légumes", "photoUrl": "assets/images/poisson.jpg",
+    "tempsPreparationMin": 30, "portions": 1, "kcalParPortion": 580,
+    "regimesCompatibles": ["sansGluten"], "cuisine": "Méditerranéenne", "equipements": ["plaque", "poele"],
+    "lignes": [
+      {"ingredient": "dorade", "quantite": 1, "unite": "pièce"},
+      {"ingredient": "poivron", "quantite": 100, "unite": "g"},
+      {"ingredient": "tomate", "quantite": 100, "unite": "g"},
+      {"ingredient": "huile-olive", "quantite": 10, "unite": "ml"}
+    ],
+    "etapes": [
+      {"ordre": 1, "instruction": "Faites griller la dorade dans la poêle huilée, 8 minutes de chaque côté.", "dureeMinuteur": 16},
+      {"ordre": 2, "instruction": "Faites griller le poivron et la tomate à côté.", "dureeMinuteur": 8},
+      {"ordre": 3, "instruction": "Servez avec un filet d’huile d’olive."}
+    ]
+  }
+]

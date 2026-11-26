@@ -1,0 +1,245 @@
+{
+ "_commentaire": "Pages produits simulées du site de l’enseigne (aucun scraping réel).",
+ "produits": [
+  {
+   "reference": "C-TOM",
+   "libelle": "Tomates fraîches",
+   "conditionnement": "1 kg",
+   "prixDT": 1.98,
+   "rayon": "Fruits et légumes",
+   "ingredient": "tomate"
+  },
+  {
+   "reference": "C-OIG",
+   "libelle": "Oignons",
+   "conditionnement": "1 kg",
+   "prixDT": 1.45,
+   "rayon": "Fruits et légumes",
+   "ingredient": "oignon"
+  },
+  {
+   "reference": "C-POI",
+   "libelle": "Poivrons",
+   "conditionnement": "500 g",
+   "prixDT": 1.75,
+   "rayon": "Fruits et légumes",
+   "ingredient": "poivron"
+  },
+  {
+   "reference": "C-CON",
+   "libelle": "Concombre",
+   "conditionnement": "1 pièce",
+   "prixDT": 0.6,
+   "rayon": "Fruits et légumes",
+   "ingredient": "concombre"
+  },
+  {
+   "reference": "C-DAT",
+   "libelle": "Dattes Deglet Nour",
+   "conditionnement": "500 g",
+   "prixDT": 6.5,
+   "rayon": "Fruits et légumes",
+   "ingredient": "datte"
+  },
+  {
+   "reference": "C-AUB",
+   "libelle": "Aubergines",
+   "conditionnement": "1 kg",
+   "prixDT": 1.8,
+   "rayon": "Fruits et légumes",
+   "ingredient": "aubergine"
+  },
+  {
+   "reference": "C-CAR",
+   "libelle": "Carottes",
+   "conditionnement": "1 kg",
+   "prixDT": 0.95,
+   "rayon": "Fruits et légumes",
+   "ingredient": "carotte"
+  },
+  {
+   "reference": "C-BAN",
+   "libelle": "Bananes",
+   "conditionnement": "6 pièces",
+   "prixDT": 4.5,
+   "rayon": "Fruits et légumes",
+   "ingredient": "banane"
+  },
+  {
+   "reference": "C-ORA",
+   "libelle": "Oranges",
+   "conditionnement": "6 pièces",
+   "prixDT": 2.4,
+   "rayon": "Fruits et légumes",
+   "ingredient": "orange"
+  },
+  {
+   "reference": "C-PCH",
+   "libelle": "Pois chiches cuits",
+   "conditionnement": "400 g",
+   "prixDT": 2.45,
+   "rayon": "Épicerie",
+   "ingredient": "pois-chiche"
+  },
+  {
+   "reference": "C-RIZ",
+   "libelle": "Riz long",
+   "conditionnement": "1 kg",
+   "prixDT": 3.65,
+   "rayon": "Épicerie",
+   "ingredient": "riz"
+  },
+  {
+   "reference": "C-PEN",
+   "libelle": "Penne complètes",
+   "conditionnement": "500 g",
+   "prixDT": 2.35,
+   "rayon": "Épicerie",
+   "ingredient": "penne"
+  },
+  {
+   "reference": "C-THO",
+   "libelle": "Thon à l’huile d’olive",
+   "conditionnement": "160 g",
+   "prixDT": 4.2,
+   "rayon": "Épicerie",
+   "ingredient": "thon"
+  },
+  {
+   "reference": "C-AVO",
+   "libelle": "Flocons d’avoine",
+   "conditionnement": "500 g",
+   "prixDT": 5.9,
+   "rayon": "Épicerie",
+   "ingredient": "avoine"
+  },
+  {
+   "reference": "C-CUM",
+   "libelle": "Cumin moulu",
+   "conditionnement": "50 g",
+   "prixDT": 1.2,
+   "rayon": "Épicerie",
+   "ingredient": "cumin"
+  },
+  {
+   "reference": "C-TOR",
+   "libelle": "Tortillas de blé",
+   "conditionnement": "6 pièces",
+   "prixDT": 3.6,
+   "rayon": "Épicerie",
+   "ingredient": "tortilla"
+  },
+  {
+   "reference": "C-LEN",
+   "libelle": "Lentilles corail",
+   "conditionnement": "500 g",
+   "prixDT": 1.9,
+   "rayon": "Épicerie",
+   "ingredient": "lentilles"
+  },
+  {
+   "reference": "C-OLI",
+   "libelle": "Olives noires",
+   "conditionnement": "200 g",
+   "prixDT": 0.9,
+   "rayon": "Épicerie",
+   "ingredient": "olives"
+  },
+  {
+   "reference": "C-HAR",
+   "libelle": "Haricots rouges cuits",
+   "conditionnement": "400 g",
+   "prixDT": 2.3,
+   "rayon": "Épicerie",
+   "ingredient": "haricots-rouges"
+  },
+  {
+   "reference": "C-BCA",
+   "libelle": "Beurre de cacahuète",
+   "conditionnement": "340 g",
+   "prixDT": 9.8,
+   "rayon": "Épicerie",
+   "ingredient": "beurre-cacahuete"
+  },
+  {
+   "reference": "C-NOU",
+   "libelle": "Nouilles de blé",
+   "conditionnement": "250 g",
+   "prixDT": 2.2,
+   "rayon": "Épicerie",
+   "ingredient": "nouilles"
+  },
+  {
+   "reference": "C-PIZ",
+   "libelle": "Pâte à pizza",
+   "conditionnement": "1 pièce",
+   "prixDT": 2.9,
+   "rayon": "Épicerie",
+   "ingredient": "pate-pizza"
+  },
+  {
+   "reference": "C-YAO",
+   "libelle": "Yaourts nature",
+   "conditionnement": "4 pots",
+   "prixDT": 3.2,
+   "rayon": "Crèmerie, viande",
+   "ingredient": "yaourt"
+  },
+  {
+   "reference": "C-LAI",
+   "libelle": "Lait demi-écrémé",
+   "conditionnement": "1 L",
+   "prixDT": 1.45,
+   "rayon": "Crèmerie, viande",
+   "ingredient": "lait"
+  },
+  {
+   "reference": "C-OEU",
+   "libelle": "Œufs",
+   "conditionnement": "6 pièces",
+   "prixDT": 2.1,
+   "rayon": "Crèmerie, viande",
+   "ingredient": "oeuf"
+  },
+  {
+   "reference": "C-POU",
+   "libelle": "Blancs de poulet",
+   "conditionnement": "300 g",
+   "prixDT": 6.2,
+   "rayon": "Crèmerie, viande",
+   "ingredient": "poulet"
+  },
+  {
+   "reference": "C-FET",
+   "libelle": "Feta",
+   "conditionnement": "200 g",
+   "prixDT": 2.4,
+   "rayon": "Crèmerie, viande",
+   "ingredient": "feta"
+  },
+  {
+   "reference": "C-FRO",
+   "libelle": "Fromage râpé",
+   "conditionnement": "200 g",
+   "prixDT": 4.8,
+   "rayon": "Crèmerie, viande",
+   "ingredient": "fromage-rape"
+  },
+  {
+   "reference": "C-DOR",
+   "libelle": "Dorade",
+   "conditionnement": "1 pièce",
+   "prixDT": 9.5,
+   "rayon": "Crèmerie, viande",
+   "ingredient": "dorade"
+  },
+  {
+   "reference": "C-PAI",
+   "libelle": "Pain complet",
+   "conditionnement": "400 g",
+   "prixDT": 0.75,
+   "rayon": "Boulangerie",
+   "ingredient": "pain-complet"
+  }
+ ]
+}

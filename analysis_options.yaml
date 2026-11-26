@@ -1,0 +1,19 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+
+linter:
+  rules:
+    # Les attributs « − » (privés) du diagramme de classes sont des champs `_nom`
+    # exposés par un accesseur : ces deux règles iraient contre la notation UML.
+    unnecessary_getters_setters: false
+    prefer_initializing_formals: false
+    prefer_single_quotes: true
+    prefer_final_locals: true
+    always_declare_return_types: true
+
+formatter:
+  page_width: 120

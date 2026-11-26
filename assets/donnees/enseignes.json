@@ -1,0 +1,6 @@
+[
+  {"id": "carrefour", "nom": "Carrefour", "siteWeb": "https://www.carrefour.tn", "livraisonDisponible": true,
+   "description": "Magasins et livraison carrefour.tn"},
+  {"id": "monoprix", "nom": "Monoprix", "siteWeb": "https://www.monoprix.tn", "livraisonDisponible": true,
+   "description": "Magasins et application Monoprix"}
+]
