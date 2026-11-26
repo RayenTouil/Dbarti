@@ -1,0 +1,61 @@
+name: dbarti
+description: "Dbarti : recettes, planning des repas sur 7 jours et liste de courses chiffrée en dinars."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.7
+
+dependencies:
+  crypto: ^3.0.8
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  hive_ce: ^2.24.0
+  http: ^1.6.0
+  lucide_icons_flutter: ^4.0.3
+  path_provider: ^2.1.6
+  provider: ^6.1.5+1
+  url_launcher: ^6.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/donnees/
+    - assets/donnees/collecte/
+    - assets/images/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/polices/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/polices/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/polices/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/polices/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/polices/Poppins-ExtraBold.ttf
+          weight: 800
+    - family: Inter
+      fonts:
+        - asset: assets/polices/Inter.ttf
+
+# Icône de l'application, générée depuis le logo (carré rouge harissa et marmite) :
+#   dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icone/icone.png"
+  min_sdk_android: 24
+  adaptive_icon_background: "#E0482B"
+  adaptive_icon_foreground: "assets/icone/icone_premier_plan.png"
