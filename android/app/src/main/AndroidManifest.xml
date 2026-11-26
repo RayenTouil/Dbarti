@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Utilisée seulement par l'agent IA facultatif (clé passée avec --dart-define).
+    <!-- Utilisée seulement par l'agent IA facultatif (clé passée à la compilation avec dart-define).
          Sans clé, l'application ne fait aucun appel réseau. -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
