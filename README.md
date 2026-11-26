@@ -1,5 +1,19 @@
-# Dbarti
+<p align="center">
+  <img src="docs/readme/banniere.gif" alt="Dbarti : recettes, planning de la semaine et courses chiffrées" width="100%">
+</p>
 
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=22&duration=3000&pause=900&color=E0482B&center=true&vCenter=true&width=720&lines=Tu+r%C3%A9ponds+%C3%A0+6+questions+courtes;Dbarti+compose+ta+semaine+de+21+repas;Les+recettes+s'adaptent+%C3%A0+ta+cuisine;Ta+liste+de+courses+est+chiffr%C3%A9e+en+dinars" alt="Ce que fait Dbarti">
+</p>
+
+<p align="center">
+  <img alt="Flutter" src="https://img.shields.io/badge/Flutter-Dart-2F6DB5?style=for-the-badge&logo=flutter&logoColor=white">
+  <img alt="Android" src="https://img.shields.io/badge/Android-APK-5B8A3A?style=for-the-badge&logo=android&logoColor=white">
+  <img alt="Langue" src="https://img.shields.io/badge/Interface-Fran%C3%A7ais-E0482B?style=for-the-badge">
+  <img alt="Monnaie" src="https://img.shields.io/badge/Prix-Dinar%20tunisien-F2A32A?style=for-the-badge">
+</p>
+
+# Dbarti
 > « Chnowa dbartek lyoum ? » — Qu'est-ce qu'on mange aujourd'hui ? Dbarti a déjà la réponse.
 
 Dbarti est une application mobile Android, en français, qui prépare les repas de la semaine :
@@ -13,6 +27,19 @@ Dbarti est une application mobile Android, en français, qui prépare les repas 
 L'application fonctionne **sans clé ni serveur** : tout est stocké sur le téléphone.
 
 > **Données de démonstration.** Les plats, les produits et les prix sont inventés pour la démonstration. Ils ne correspondent pas aux catalogues réels des enseignes. Cette mention figure aussi dans l'application (onglet Profil, rubrique « À propos »).
+
+
+## 🧭 Le parcours
+
+<p align="center">
+  <img src="docs/readme/parcours.gif" alt="Parcours en 7 étapes" width="100%">
+</p>
+
+## 📱 Démonstration
+
+<p align="center">
+  <img src="docs/readme/demo.gif" alt="Démonstration du prototype" width="260">
+</p>
 
 ## Captures
 
@@ -153,3 +180,17 @@ La CI (`.github/workflows/build-apk.yml`) lance `flutter analyze`, `flutter test
 Photos des plats : Wikimedia Commons (CC0, CC BY, CC BY-SA). Polices : Poppins et Inter (SIL Open Font License). Icônes : Lucide (ISC). Le détail des sources et des licences est dans [CREDITS.md](CREDITS.md).
 
 Projet pédagogique de développement mobile.
+
+## 👥 L'équipe
+
+<p align="center">
+  <img src="docs/readme/equipe.gif" alt="L'équipe Dbarti" width="100%">
+</p>
+
+<p align="center">
+  <img alt="Youssef Kobbi" src="https://img.shields.io/badge/Youssef%20Kobbi-E0482B?style=for-the-badge">
+  <img alt="Yassine Affes" src="https://img.shields.io/badge/Yassine%20Affes-2F6DB5?style=for-the-badge">
+  <img alt="Mohamed Amine Chakroun" src="https://img.shields.io/badge/Mohamed%20Amine%20Chakroun-5B8A3A?style=for-the-badge">
+  <img alt="Ghada Hajjem" src="https://img.shields.io/badge/Ghada%20Hajjem-C47A0A?style=for-the-badge">
+  <img alt="Rayen Touil" src="https://img.shields.io/badge/Rayen%20Touil-8B3A62?style=for-the-badge">
+</p>
