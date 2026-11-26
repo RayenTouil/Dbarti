@@ -1,0 +1,70 @@
+{
+  "_commentaire": "Base de connaissances de l’agent IA local (hors ligne). Les allergies et les exclusions ne sont pas ici : elles sont vérifiées par le code de ServicePlanning.",
+  "typesDeRepas": {
+    "r-porridge": ["petitDejeuner"],
+    "r-yaourt-avoine": ["petitDejeuner"],
+    "r-omelette": ["petitDejeuner"],
+    "r-tartine-cacahuete": ["petitDejeuner"],
+    "r-fruits-avoine": ["petitDejeuner"],
+    "r-riz-au-lait": ["petitDejeuner", "diner"],
+    "r-curry": ["dejeuner", "diner"],
+    "r-penne-thon": ["dejeuner", "diner"],
+    "r-wrap-poulet": ["dejeuner", "diner"],
+    "r-salade-pois-chiches": ["dejeuner", "diner"],
+    "r-poulet-saute": ["dejeuner", "diner"],
+    "r-ojja": ["dejeuner", "diner"],
+    "r-penne-tomate": ["dejeuner", "diner"],
+    "r-riz-oignons": ["dejeuner", "diner"],
+    "r-riz-pois-chiches": ["dejeuner", "diner"],
+    "r-pizza-thon": ["dejeuner", "diner"],
+    "r-nouilles-cacahuete": ["dejeuner", "diner"],
+    "r-mechouia": ["dejeuner", "diner"],
+    "r-lentilles": ["dejeuner", "diner"],
+    "r-grecque": ["dejeuner", "diner"],
+    "r-chili": ["dejeuner"],
+    "r-dorade": ["dejeuner", "diner"]
+  },
+  "semainesTypes": {
+    "aucun": {
+      "petitDejeuner": ["r-porridge", "r-yaourt-avoine", "r-omelette", "r-tartine-cacahuete", "r-yaourt-avoine", "r-porridge", "r-omelette"],
+      "dejeuner": ["r-curry", "r-wrap-poulet", "r-poulet-saute", "r-curry", "r-ojja", "r-nouilles-cacahuete", "r-penne-tomate"],
+      "diner": ["r-penne-thon", "r-salade-pois-chiches", "r-pizza-thon", "r-penne-thon", "r-riz-oignons", "r-mechouia", "r-riz-au-lait"]
+    },
+    "vegetarien": {
+      "petitDejeuner": ["r-porridge", "r-yaourt-avoine", "r-omelette", "r-fruits-avoine", "r-porridge", "r-yaourt-avoine", "r-omelette"],
+      "dejeuner": ["r-curry", "r-ojja", "r-salade-pois-chiches", "r-penne-tomate", "r-riz-pois-chiches", "r-lentilles", "r-curry"],
+      "diner": ["r-penne-tomate", "r-riz-oignons", "r-grecque", "r-salade-pois-chiches", "r-riz-au-lait", "r-ojja", "r-riz-pois-chiches"]
+    },
+    "vegane": {
+      "petitDejeuner": ["r-fruits-avoine", "r-tartine-cacahuete", "r-fruits-avoine", "r-tartine-cacahuete", "r-fruits-avoine", "r-tartine-cacahuete", "r-fruits-avoine"],
+      "dejeuner": ["r-salade-pois-chiches", "r-riz-pois-chiches", "r-penne-tomate", "r-lentilles", "r-chili", "r-riz-oignons", "r-salade-pois-chiches"],
+      "diner": ["r-riz-oignons", "r-lentilles", "r-penne-tomate", "r-riz-pois-chiches", "r-mechouia", "r-salade-pois-chiches", "r-lentilles"]
+    },
+    "sansGluten": {
+      "petitDejeuner": ["r-omelette", "r-riz-au-lait", "r-omelette", "r-riz-au-lait", "r-omelette", "r-riz-au-lait", "r-omelette"],
+      "dejeuner": ["r-curry", "r-poulet-saute", "r-ojja", "r-salade-pois-chiches", "r-riz-pois-chiches", "r-lentilles", "r-dorade"],
+      "diner": ["r-riz-oignons", "r-salade-pois-chiches", "r-ojja", "r-riz-pois-chiches", "r-lentilles", "r-mechouia", "r-riz-au-lait"]
+    }
+  },
+  "methodes": {
+    "r-curry": {
+      "mixeur": {
+        "description": "Sans mixeur : les tomates sont écrasées à la fourchette.",
+        "ordreEtape": 4,
+        "instruction": "Écrasez les tomates à la fourchette, puis versez-les dans la poêle avec les oignons.",
+        "conseil": "Écrasez longuement pour une sauce lisse."
+      }
+    },
+    "r-lentilles": {
+      "casserole": {
+        "description": "Sans casserole : la soupe cuit dans la cocotte-minute.",
+        "ordreEtape": 3,
+        "instruction": "Fermez la cocotte-minute et laissez cuire à feu doux jusqu’à ce que les lentilles fondent.",
+        "conseil": "Comptez 8 minutes après le sifflement."
+      }
+    }
+  },
+  "ingredientsLocaux": {
+    "r-curry": "Yaourt nature à la place du lait de coco."
+  }
+}
