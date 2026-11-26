@@ -24,10 +24,23 @@ Dbarti est une application mobile Android, en français, qui prépare les repas 
 - la **liste de courses** additionne les 21 repas, associe chaque ingrédient à un produit de l'enseigne et affiche le **total en dinars** (3 décimales) et le reste du budget ;
 - les courses se font **en magasin** (itinéraire) ou **en livraison** sur le site de l'enseigne : la liste est copiée, le paiement se fait hors de l'application.
 
-L'application fonctionne **sans clé ni serveur** : tout est stocké sur le téléphone.
+L'application fonctionne **sans clé ni serveur** : tout est stocké sur le téléphone. **Le compte est facultatif.**
 
 > **Données de démonstration.** Les plats, les produits et les prix sont inventés pour la démonstration. Ils ne correspondent pas aux catalogues réels des enseignes. Cette mention figure aussi dans l'application (onglet Profil, rubrique « À propos »).
 
+
+## 🙋 Utiliser sans compte
+
+Créer un compte n'est pas obligatoire.
+
+1. Sur l'écran de bienvenue, appuyez sur **« Continuer sans compte »** (l'action principale). « Créer un compte » et « Se connecter » restent proposés.
+2. Seul le **consentement aux données de santé** est demandé (obligatoire) : pas d'e-mail, pas de mot de passe. Le questionnaire commence aussitôt.
+3. Le visiteur a accès à **toutes les fonctions** : questionnaire, planning, remplacement d'un repas, recettes, mode cuisine, liste de courses et achat. Aucun écran ne demande de compte, et aucun rappel ne s'affiche.
+4. Ses données sont enregistrées **seulement sur le téléphone** et restent après la fermeture de l'application : au lancement suivant, Dbarti s'ouvre directement sur le planning (ou sur le questionnaire s'il n'est pas terminé).
+5. Dans l'onglet **Profil**, un bandeau « Vous utilisez Dbarti sans compte » propose **« Créer un compte »** (facultatif). Le visiteur devient alors un utilisateur inscrit : **même identifiant**, et son profil, son planning et sa liste de courses sont gardés. Si l'adresse e-mail est déjà utilisée, un message l'explique et rien n'est perdu.
+6. **« Effacer mes données »** (avec confirmation) remplace « Supprimer le compte » pour un visiteur.
+
+Dans le code : `Utilisateur.estVisiteur`, les attributs `nomComplet`, `email`, `motDePasseHache` et `dateInscription` facultatifs ([0..1]), `ServiceAuthentification.demarrerVisiteur(consentement)`, et `inscrire()` qui convertit le visiteur sur le même objet (`creerCompte()`). Les comptes enregistrés par la version 1.0.0 sont migrés au démarrage (`estVisiteur = faux`), sans perte de données.
 
 ## 🧭 Le parcours
 
@@ -61,7 +74,7 @@ L'application fonctionne **sans clé ni serveur** : tout est stocké sur le tél
 
 1. Téléchargez `Dbarti.apk` depuis la page [Releases](../../releases/latest) du dépôt.
 2. Sur le téléphone Android (7.0 ou plus récent), ouvrez le fichier et autorisez l'installation depuis cette source si Android le demande.
-3. Lancez **Dbarti**, puis « Créer mon compte ».
+3. Lancez **Dbarti**, puis « Continuer sans compte » (ou « Créer un compte »).
 
 L'APK est signé avec la clé de debug : il convient pour une démonstration, pas pour une publication sur un store.
 
@@ -136,7 +149,7 @@ assets/donnees/  recettes, ingrédients, enseignes, catalogues (avec dateMiseAJo
 [services et systèmes externes](docs/diagrammes/classes_services_externes.png)
 
 **Séquences** :
-[1 S'authentifier](docs/diagrammes/sequence_1_authentification.png) ·
+[1 Accéder à Dbarti : visiteur ou compte](docs/diagrammes/sequence_1_authentification.png) ·
 [2 Questionnaire](docs/diagrammes/sequence_2_questionnaire.png) ·
 [3 Générer le planning](docs/diagrammes/sequence_3_planning.png) ·
 [4 Remplacer un repas](docs/diagrammes/sequence_4_remplacer_repas.png) ·
@@ -171,6 +184,7 @@ Les choix et les points ambigus sont détaillés dans [PLAN.md](PLAN.md).
 - `planning_test.dart` : 21 repas exactement, filtre des allergènes (arachides) et des exclusions, adaptation « Sans mixeur », recette au four retirée, coût de 55,830 DT, dépassement du budget, agent en panne (l'ancien planning reste), remplacement d'un repas ;
 - `courses_test.dart` : agrégation des quantités, « à acheter ailleurs », total de 55,830 DT et reste de 4,170 DT, « déjà à la maison », prix indicatifs, collecte simulée, achat en livraison ou en magasin ;
 - `authentification_test.dart` : mot de passe haché et salé, connexion, formats, suppression du compte ;
+- `visiteur_test.dart` : `demarrerVisiteur()`, parcours complet sans compte, conversion visiteur → compte (même id, données gardées), e-mail déjà utilisé, persistance après redémarrage (mémoire et fichiers Hive), migration des comptes 1.0.0, écrans du visiteur ;
 - `parcours_test.dart` (widgets) : inscription → questionnaire → analyse → profil → planning, puis liste de courses.
 
 La CI (`.github/workflows/build-apk.yml`) lance `flutter analyze`, `flutter test` et `flutter build apk --release`, puis publie l'APK en artefact.
