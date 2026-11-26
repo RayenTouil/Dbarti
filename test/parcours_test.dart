@@ -151,4 +151,70 @@ void main() {
         scrollable: find.byType(Scrollable).first);
     expect(find.textContaining('À acheter ailleurs'), findsOneWidget);
   });
+
+  testWidgets('connexion : identifiants incorrects, puis corrects → planning', (tester) async {
+    tester.view
+      ..physicalSize = const Size(1080, 2400)
+      ..devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+
+    final Dependances d = (await tester.runAsync(() async {
+      final d = await preparer();
+      await d.planning.genererSemaine(await inscrireYasmine(d));
+      d.auth.seDeconnecter();
+      return d;
+    }))!;
+    await tester.pumpWidget(AppDbarti(dependances: d));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('J’ai déjà un compte'));
+    await tester.pumpAndSettle();
+    expect(find.text('Bon retour !'), findsOneWidget);
+
+    await tester.enterText(find.byKey(const Key('connexion-email')), 'yasmine@exemple.tn');
+    await tester.enterText(find.byKey(const Key('connexion-mot-de-passe')), 'mauvais123');
+    await tester.tap(find.byKey(const Key('bouton-se-connecter')));
+    await tester.pumpAndSettle();
+    expect(find.text('E-mail ou mot de passe incorrect'), findsOneWidget);
+
+    await tester.enterText(find.byKey(const Key('connexion-mot-de-passe')), 'soleil2024');
+    await tester.tap(find.byKey(const Key('bouton-se-connecter')));
+    await tester.pumpAndSettle();
+    expect(find.text('Bonjour Yasmine'), findsOneWidget);
+  });
+
+  testWidgets('profil : modifier le budget recalcule et signale le dépassement', (tester) async {
+    tester.view
+      ..physicalSize = const Size(1080, 2400)
+      ..devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+
+    final Dependances d = (await tester.runAsync(() async {
+      final d = await preparer();
+      await d.planning.genererSemaine(await inscrireYasmine(d));
+      return d;
+    }))!;
+    await tester.pumpWidget(AppDbarti(dependances: d));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Profil'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Foyer et budget'));
+    await tester.pumpAndSettle();
+    expect(find.text('Étape 5 sur 6 · Foyer et budget'), findsOneWidget);
+    await tester.enterText(find.byKey(const Key('champ-budget')), '50');
+    await tester.tap(find.text('Enregistrer'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Votre profil nutritionnel'), findsOneWidget); // écran 11 recalculé
+    expect(d.auth.utilisateurCourant!.profil!.budgetHebdoDT, 50);
+    expect(d.planning.depassement!.ecart, closeTo(5.830, 1e-9));
+
+    await tester.tap(find.byType(BackButton));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Semaine'));
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(find.byKey(const Key('depassement')), 200, scrollable: find.byType(Scrollable).first);
+    expect(find.textContaining('dépasse votre budget de 5,830', findRichText: true), findsOneWidget);
+  });
 }

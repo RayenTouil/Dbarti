@@ -123,7 +123,12 @@ class _EcranConnexionState extends State<EcranConnexion> {
               ),
             ),
             PiedFixe(children: [
-              BoutonPrincipal(libelle: 'Se connecter', chargement: _envoi, onPressed: _seConnecter),
+              BoutonPrincipal(
+                key: const Key('bouton-se-connecter'),
+                libelle: 'Se connecter',
+                chargement: _envoi,
+                onPressed: _seConnecter,
+              ),
               BoutonTexte(
                 libelle: 'Nouveau ? Créer un compte',
                 onPressed: () => Navigator.of(context)
