@@ -26,8 +26,8 @@ void main() {
     }
 
     // Écran 01 — Bienvenue
-    expect(find.text('Créer mon compte'), findsOneWidget);
-    await appuyer(find.text('Créer mon compte'));
+    expect(find.text('Continuer sans compte'), findsOneWidget); // action principale
+    await appuyer(find.text('Créer un compte'));
 
     // Écran 02 → 02E : adresse incomplète, consentement non coché
     await tester.enterText(find.byKey(const Key('champ-nom')), 'Yasmine Trabelsi');
@@ -167,7 +167,7 @@ void main() {
     await tester.pumpWidget(AppDbarti(dependances: d));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('J’ai déjà un compte'));
+    await tester.tap(find.text('Se connecter'));
     await tester.pumpAndSettle();
     expect(find.text('Bon retour !'), findsOneWidget);
 
