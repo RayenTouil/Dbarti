@@ -2,11 +2,14 @@
 // Trois champs seulement ; règle du mot de passe affichée avant la saisie ;
 // consentement explicite aux données de santé (loi organique n° 2004-63), non coché par défaut.
 // Le bouton reste actif : un appui montre toutes les erreurs en une fois.
+// Ouvert par un visiteur (onglet Profil) : le consentement est déjà donné, et le visiteur
+// devient inscrit en gardant toutes ses données (séquence 1, opt « compte plus tard »).
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../composants/boutons.dart';
+import '../composants/elements.dart';
 import '../composants/formulaire.dart';
 import '../services/service_authentification.dart';
 import '../services/service_profil.dart';
@@ -27,10 +30,12 @@ class _EcranInscriptionState extends State<EcranInscription> {
   final _nom = TextEditingController();
   final _email = TextEditingController();
   final _motDePasse = TextEditingController();
-  bool _consentement = false;
+  late bool _consentement = _visiteur;
   bool _masque = true;
   bool _envoi = false;
   Map<String, String> _erreurs = {}; // écran 02E quand non vide
+
+  bool get _visiteur => context.read<ServiceAuthentification>().utilisateurCourant?.estVisiteur ?? false;
 
   @override
   void dispose() {
@@ -53,8 +58,15 @@ class _EcranInscriptionState extends State<EcranInscription> {
     final auth = context.read<ServiceAuthentification>();
     final profil = context.read<ServiceProfil>();
     final navigateur = Navigator.of(context);
+    final messager = ScaffoldMessenger.of(context);
+    final conversion = _visiteur;
     try {
       await auth.inscrire(_nom.text, _email.text, _motDePasse.text, _consentement);
+      if (conversion) {
+        navigateur.pop(); // 24 : « Compte créé, vos données sont gardées »
+        messager.showSnackBar(const SnackBar(content: Text('Compte créé, vos données sont gardées.')));
+        return;
+      }
       profil.demarrer();
       navigateur.pushAndRemoveUntil(MaterialPageRoute(builder: (_) => const EcranQuestionnaire()), (_) => false);
     } on ErreurAuthentification catch (e) {
@@ -130,6 +142,13 @@ class _EcranInscriptionState extends State<EcranInscription> {
                     ),
                   ),
                   const SizedBox(height: 14),
+                  if (_visiteur)
+                    const Encadre(
+                      ton: TonEncadre.olive,
+                      icone: LucideIcons.shieldCheck,
+                      child: Text('Votre profil, votre planning et votre liste de courses sont gardés.'),
+                    )
+                  else
                   _Consentement(
                     coche: _consentement,
                     erreur: _erreurs['consentement'],
