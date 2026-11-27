@@ -29,9 +29,9 @@ class BaseDeDonneesHive implements BaseDeDonnees {
   final Map<String, Box<String>> _boites;
   final Box<String> _reglages;
 
-  static Future<BaseDeDonneesHive> ouvrir() async {
-    final dossier = await getApplicationSupportDirectory();
-    Hive.init('${dossier.path}/dbarti');
+  /// [dossier] : pour les tests ; sinon le dossier privé de l'application sur le téléphone.
+  static Future<BaseDeDonneesHive> ouvrir({String? dossier}) async {
+    Hive.init(dossier ?? '${(await getApplicationSupportDirectory()).path}/dbarti');
     final boites = <String, Box<String>>{};
     for (final nom in [
       BaseDeDonnees.utilisateurs,

@@ -18,14 +18,39 @@ class ServiceAuthentification extends ChangeNotifier {
 
   Utilisateur? get utilisateurCourant => _courant;
 
-  /// Crée le compte (écran 02). Lève [ErreurAuthentification] si l'adresse est déjà utilisée
-  /// ou si les règles ne sont pas respectées.
+  /// « Continuer sans compte » (séquence 1, messages 3 à 6) : crée un visiteur, sans e-mail
+  /// ni mot de passe, enregistré seulement sur le téléphone.
+  Future<Utilisateur> demarrerVisiteur(bool consentement) async {
+    if (!consentement) {
+      throw ErreurAuthentification('Cochez la case pour accepter l’utilisation de vos données de santé.');
+    }
+    final u = Utilisateur(consentementSante: true, estVisiteur: true); // 4 : créer(estVisiteur = vrai)
+    await enregistrer(u); // 5 : enregistrer sur le téléphone
+    await _base.definirReglage(_cleSession, u.id);
+    _courant = u;
+    notifyListeners();
+    return u; // 6 : utilisateur visiteur
+  }
+
+  /// Crée le compte (écran 02). Si l'utilisateur courant est un visiteur, c'est LUI qui devient
+  /// inscrit (séquence 1, opt, messages 20 à 22) : même id, profil, planning et liste conservés.
+  /// Lève [ErreurAuthentification] si l'adresse est déjà utilisée ou si les règles ne sont pas
+  /// respectées ; dans ce cas le visiteur garde ses données, inchangées.
   Future<Utilisateur> inscrire(String nom, String email, String motDePasse, bool consentement) async {
     if (!consentement) {
       throw ErreurAuthentification('Cochez la case pour accepter l’utilisation de vos données de santé.');
     }
     if (await _chercher(email) != null) {
-      throw ErreurAuthentification('Un compte existe déjà avec cette adresse. Connectez-vous.');
+      throw ErreurAuthentification('Un compte existe déjà avec cette adresse. Choisissez-en une autre ou connectez-vous.');
+    }
+    final visiteur = _courant;
+    if (visiteur != null && visiteur.estVisiteur) {
+      if (!visiteur.creerCompte(nom, email, motDePasse)) { // 21 : creerCompte(nom, email, motDePasse)
+        throw ErreurAuthentification('Vérifiez votre nom, votre adresse e-mail et votre mot de passe.');
+      }
+      visiteur.seConnecter(email, motDePasse);
+      await enregistrer(visiteur); // 22 : enregistrer(compte)
+      return visiteur; // 23 : compte créé
     }
     final u = Utilisateur(consentementSante: consentement);
     if (!u.creerCompte(nom, email, motDePasse)) {
@@ -71,6 +96,7 @@ class ServiceAuthentification extends ChangeNotifier {
   }
 
   /// Supprime le compte et toutes ses données : profil, plannings, liste et achats.
+  /// Pour un visiteur, c'est « Effacer mes données ».
   Future<void> supprimerCompte() async {
     final u = _courant;
     if (u == null) return;
@@ -91,6 +117,21 @@ class ServiceAuthentification extends ChangeNotifier {
       'plannings': [for (final p in u.plannings) p.versJson()],
     });
     notifyListeners();
+  }
+
+  /// Migration de la base : les comptes enregistrés avant l'accès visiteur reçoivent
+  /// estVisiteur = faux. Aucune donnée n'est supprimée. À appeler au démarrage.
+  static Future<void> migrer(BaseDeDonnees base) async {
+    const cle = 'versionSchema';
+    final version = int.tryParse(await base.reglage(cle) ?? '') ?? 1;
+    if (version < 2) {
+      for (final j in await base.lireTout(BaseDeDonnees.utilisateurs)) {
+        if (!j.containsKey('estVisiteur')) {
+          await base.enregistrer(BaseDeDonnees.utilisateurs, j['id'] as String, {...j, 'estVisiteur': false});
+        }
+      }
+    }
+    await base.definirReglage(cle, '2');
   }
 
   Future<Utilisateur?> _chercher(String email) async {

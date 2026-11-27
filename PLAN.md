@@ -239,3 +239,22 @@ Plus `flutter analyze` sans erreur ni avertissement.
 | 22 | Moment où `adapterRecette()` est appelé | Il est appelé pour chaque repas, et pas seulement quand un appareil manque : c'est aussi lui qui renvoie l'adaptation « Ingrédient local ». S'il manque un appareil et qu'aucune méthode ne le remplace, la recette est retirée (règle de l'écran 09) |
 | 23 | Cuisines préférées | L'agent local suit des semaines types par régime et respecte le temps maximal. Les cuisines préférées sont transmises à l'agent IA facultatif (Claude), mais elles ne changent pas les semaines types de l'agent local |
 | 24 | Stockage | `hive_ce` (pur Dart) avec `path_provider`, et non `hive_ce_flutter` : la version 2.6 de ce dernier compile du code C sur l'ordinateur, ce qui demanderait Visual Studio pour lancer les tests sous Windows |
+
+## 11. Version 1.1.0 — accès visiteur (compte facultatif)
+
+Source : diagrammes mis à jour dans `obj 4/Dbarti_Presentation_Semaine4 v1.pptx` (classe `Utilisateur`, `ServiceAuthentification`, séquence 1 « Accéder à Dbarti : visiteur ou compte »).
+
+| Exigence | Où dans le code |
+|---|---|
+| Écran 01 : « Continuer sans compte » (action principale), « Créer un compte », « Se connecter » | `ecran_01_bienvenue.dart` |
+| Consentement santé seul, obligatoire, puis questionnaire (écran 04) | `ecran_01v_consentement.dart` → `ServiceAuthentification.demarrerVisiteur(consentement)` |
+| `Utilisateur.estVisiteur` ; `nomComplet`, `email`, `motDePasseHache`, `dateInscription` facultatifs [0..1] | `modeles/utilisateur.dart` |
+| Toutes les fonctions sans compte, aucun rappel ni pop-up | aucun écran ne teste `estVisiteur` sauf l'onglet Profil |
+| Données seulement sur le téléphone, gardées après fermeture ; démarrage direct sur le planning ou le questionnaire | session dans `BaseDeDonnees` (Hive), `app.dart` |
+| Profil : bandeau « Vous utilisez Dbarti sans compte » + « Créer un compte » facultatif | `ecran_18_profil.dart` |
+| Conversion : `inscrire()` par un visiteur → `creerCompte()` sur le même objet (même id, aucune copie) | `ServiceAuthentification.inscrire`, `Utilisateur.creerCompte` |
+| E-mail déjà utilisé : message clair, données du visiteur intactes | vérifié avant `creerCompte()` |
+| « Effacer mes données » (avec confirmation) au lieu de « Supprimer le compte » ; pas de « Se déconnecter » pour un visiteur (il perdrait l'accès à ses données) | `ecran_18_profil.dart` |
+| Migration des données existantes | `ServiceAuthentification.migrer()` au démarrage : réglage `versionSchema` = 2, comptes 1.0.0 → `estVisiteur = faux` |
+
+Choix retenus : l'écran de consentement du visiteur est un nouvel écran (01V), car le prototype n'en avait pas ; « Créer un compte » depuis le profil réutilise l'écran 02 sans la case de consentement (déjà donné).

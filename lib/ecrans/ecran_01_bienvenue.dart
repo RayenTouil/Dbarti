@@ -1,5 +1,5 @@
 // Écran 01 — Bienvenue (premier lancement).
-// Une promesse en une phrase, une seule action principale, en bas.
+// Une promesse en une phrase, une seule action principale, en bas : « Continuer sans compte ».
 import 'package:flutter/material.dart';
 
 import '../composants/boutons.dart';
@@ -7,6 +7,7 @@ import '../composants/elements.dart';
 import '../theme/couleurs.dart';
 import '../theme/theme.dart';
 import '../theme/typographie.dart';
+import 'ecran_01v_consentement.dart';
 import 'ecran_02_inscription.dart';
 import 'ecran_03_connexion.dart';
 
@@ -76,16 +77,24 @@ class EcranBienvenue extends StatelessWidget {
             PiedFixe(
               fond: Colors.transparent,
               children: [
+                // Le compte est facultatif : l'action principale est « Continuer sans compte ».
                 BoutonPrincipal(
-                  libelle: 'Créer mon compte',
+                  key: const Key('continuer-sans-compte'),
+                  libelle: 'Continuer sans compte',
+                  onPressed: () =>
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EcranConsentementVisiteur())),
+                ),
+                BoutonSecondaire(
+                  surSombre: true,
+                  libelle: 'Créer un compte',
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EcranInscription())),
                 ),
                 BoutonTexte(
-                  libelle: 'J’ai déjà un compte',
+                  libelle: 'Se connecter',
                   couleur: Colors.white,
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const EcranConnexion())),
                 ),
-                Text('Gratuit · en français · Android',
+                Text('Gratuit · en français · Android · compte facultatif',
                     style: Textes.inter(12.5, FontWeight.w400, couleur: const Color(0xFFA99B91))),
               ],
             ),

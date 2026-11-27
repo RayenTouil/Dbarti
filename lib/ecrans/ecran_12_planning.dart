@@ -58,6 +58,7 @@ class _EcranPlanningState extends State<EcranPlanning> {
     final service = context.watch<ServicePlanning>();
     final planning = service.planning;
     final prenom = (u?.nomComplet ?? '').split(' ').first;
+    final bonjour = prenom.isEmpty ? 'Bonjour' : 'Bonjour $prenom';
     if (u == null) return const SizedBox();
 
     if (planning == null) {
@@ -68,7 +69,7 @@ class _EcranPlanningState extends State<EcranPlanning> {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(Espaces.marge, 16, Espaces.marge, 16),
                 children: [
-                  EnteteEcran(titre: 'Bonjour $prenom', sousTitre: 'Votre semaine n’est pas encore préparée.'),
+                  EnteteEcran(titre: bonjour, sousTitre: 'Votre semaine n’est pas encore préparée.'),
                   if (service.erreur != null) ...[const SizedBox(height: 14), _erreur(service.erreur!)],
                 ],
               ),
@@ -100,7 +101,7 @@ class _EcranPlanningState extends State<EcranPlanning> {
         padding: const EdgeInsets.fromLTRB(Espaces.marge, 8, Espaces.marge, 20),
         children: [
           Text(formaterSemaine(planning.dateDebut), style: Textes.etiquette),
-          Text('Bonjour $prenom', style: Textes.titreEcran),
+          Text(bonjour, style: Textes.titreEcran),
           const SizedBox(height: 12),
           if (service.erreur != null) ...[_erreur(service.erreur!), const SizedBox(height: 12)],
           if (semaineFinie) ...[

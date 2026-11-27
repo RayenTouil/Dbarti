@@ -56,6 +56,7 @@ class Dependances {
       );
     }
 
+    await ServiceAuthentification.migrer(base); // données locales existantes conservées
     final auth = ServiceAuthentification(base, depot);
     final livraison = ServiceLivraisonEnseigneLocal(
       () => auth.utilisateurCourant?.profil?.enseigne?.siteWeb ?? depot.enseignes.first.siteWeb,

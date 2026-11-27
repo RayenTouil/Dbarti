@@ -2,6 +2,8 @@
 // Chaque rubrique du questionnaire reste modifiable, avec un résumé de la valeur actuelle ;
 // changer d'enseigne recalcule la liste avec un autre catalogue ; actions sensibles à part,
 // en rouge, avec confirmation. Rubrique « À propos » : données de démonstration et crédits.
+// Visiteur : bandeau « Vous utilisez Dbarti sans compte » avec « Créer un compte » (facultatif),
+// et « Effacer mes données » à la place de « Supprimer le compte ». Aucun rappel insistant.
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +19,7 @@ import '../theme/couleurs.dart';
 import '../theme/theme.dart';
 import '../theme/typographie.dart';
 import 'ecran_01_bienvenue.dart';
+import 'ecran_02_inscription.dart';
 import 'ecran_11_profil_nutritionnel.dart';
 import 'ecran_questionnaire.dart';
 
@@ -46,21 +49,24 @@ class EcranProfil extends StatelessWidget {
     navigateur.pushAndRemoveUntil(MaterialPageRoute(builder: (_) => const EcranBienvenue()), (_) => false);
   }
 
-  Future<void> _supprimer(BuildContext context) async {
+  Future<void> _supprimer(BuildContext context, {required bool visiteur}) async {
     final confirme = await showDialog<bool>(
       context: context,
       builder: (c) => AlertDialog(
         icon: const Icon(LucideIcons.trash2, color: Couleurs.erreur),
-        title: const Text('Supprimer votre compte ?'),
+        title: Text(visiteur ? 'Effacer vos données ?' : 'Supprimer votre compte ?'),
         content: const Text('Votre profil, vos plannings et votre liste de courses seront effacés de ce téléphone. '
             'Cette action ne peut pas être annulée.'),
         actions: [
-          TextButton(onPressed: () => Navigator.of(c).pop(false), child: const Text('Garder mon compte')),
+          TextButton(
+            onPressed: () => Navigator.of(c).pop(false),
+            child: Text(visiteur ? 'Garder mes données' : 'Garder mon compte'),
+          ),
           TextButton(
             key: const Key('confirmer-suppression'),
             style: TextButton.styleFrom(foregroundColor: Couleurs.erreur),
             onPressed: () => Navigator.of(c).pop(true),
-            child: const Text('Supprimer'),
+            child: Text(visiteur ? 'Effacer' : 'Supprimer'),
           ),
         ],
       ),
@@ -86,6 +92,31 @@ class EcranProfil extends StatelessWidget {
         children: [
           _Entete(utilisateur: u),
           const SizedBox(height: 14),
+          if (u.estVisiteur) ...[
+            Encadre(
+              key: const Key('bandeau-visiteur'),
+              ton: TonEncadre.info,
+              icone: LucideIcons.smartphone,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Vous utilisez Dbarti sans compte', style: Textes.inter(13.5, FontWeight.w600)),
+                  const Text('Vos données restent sur ce téléphone. Un compte est facultatif.'),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton(
+                      key: const Key('creer-compte-visiteur'),
+                      style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                      onPressed: () => Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) => const EcranInscription())),
+                      child: const Text('Créer un compte'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 12),
+          ],
           Carte(
             child: Column(
               children: [
@@ -144,17 +175,19 @@ class EcranProfil extends StatelessWidget {
           Carte(
             child: Column(
               children: [
-                LigneReglage(
-                  icone: LucideIcons.logOut,
-                  titre: 'Se déconnecter',
-                  onTap: () => _seDeconnecter(context),
-                ),
+                // Un visiteur n'a pas de compte : se déconnecter lui ferait perdre l'accès à ses données.
+                if (!u.estVisiteur)
+                  LigneReglage(
+                    icone: LucideIcons.logOut,
+                    titre: 'Se déconnecter',
+                    onTap: () => _seDeconnecter(context),
+                  ),
                 LigneReglage(
                   key: const Key('supprimer-compte'),
                   icone: LucideIcons.trash2,
-                  titre: 'Supprimer mon compte et mes données',
+                  titre: u.estVisiteur ? 'Effacer mes données' : 'Supprimer mon compte et mes données',
                   danger: true,
-                  onTap: () => _supprimer(context),
+                  onTap: () => _supprimer(context, visiteur: u.estVisiteur),
                   derniere: true,
                 ),
               ],
@@ -192,18 +225,20 @@ class _Entete extends StatelessWidget {
             height: 58,
             alignment: Alignment.center,
             decoration: const BoxDecoration(color: Couleurs.primaire, shape: BoxShape.circle),
-            child: Text(
-              utilisateur.nomComplet.isEmpty ? '?' : utilisateur.nomComplet[0].toUpperCase(),
-              style: Textes.poppins(24, FontWeight.w700, couleur: Colors.white),
-            ),
+            child: (utilisateur.nomComplet ?? '').isEmpty
+                ? const Icon(LucideIcons.user, color: Colors.white, size: 26)
+                : Text(
+                    utilisateur.nomComplet![0].toUpperCase(),
+                    style: Textes.poppins(24, FontWeight.w700, couleur: Colors.white),
+                  ),
           ),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(utilisateur.nomComplet, style: Textes.poppins(21, FontWeight.w700)),
-                Text(utilisateur.email, style: Textes.aide),
+                Text(utilisateur.nomComplet ?? 'Mon profil', style: Textes.poppins(21, FontWeight.w700)),
+                Text(utilisateur.email ?? 'Sans compte · données sur ce téléphone', style: Textes.aide),
               ],
             ),
           ),
@@ -249,7 +284,7 @@ void afficherAPropos(BuildContext context) => showModalBottomSheet<void>(
               style: Textes.aide,
             ),
             const SizedBox(height: 10),
-            Text('Version 1.0.0', style: Textes.aide),
+            Text('Version 1.1.0', style: Textes.aide),
           ],
         ),
       ),

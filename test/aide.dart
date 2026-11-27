@@ -10,15 +10,22 @@ import 'package:flutter_test/flutter_test.dart';
 final aujourdhuiDesTests = DateTime(2026, 11, 24, 9);
 
 /// Prépare l'application avec une base en mémoire et l'horloge fixée.
-Future<Dependances> preparer({AgentIA? agent, bool collecter = false}) async {
+Future<Dependances> preparer({AgentIA? agent, bool collecter = false, BaseDeDonnees? base}) async {
   TestWidgetsFlutterBinding.ensureInitialized();
   maintenant = () => aujourdhuiDesTests;
-  return Dependances.creer(base: BaseDeDonneesMemoire(), agent: agent, collecter: collecter);
+  return Dependances.creer(base: base ?? BaseDeDonneesMemoire(), agent: agent, collecter: collecter);
 }
 
 /// Crée le compte de Yasmine et remplit les 6 étapes du questionnaire (persona de la semaine 2).
 Future<Utilisateur> inscrireYasmine(Dependances d) async {
   final u = await d.auth.inscrire('Yasmine Trabelsi', 'yasmine@exemple.tn', 'soleil2024', true);
+  await remplirQuestionnaire(d, u);
+  return u;
+}
+
+/// Remplit les 6 étapes du questionnaire avec les réponses du persona, pour l'utilisateur [u]
+/// (inscrit ou visiteur).
+Future<void> remplirQuestionnaire(Dependances d, Utilisateur u) async {
   final s = d.profil..demarrer();
   final depot = d.depot;
   expect(s.enregistrerEtape(1, {
@@ -50,5 +57,4 @@ Future<Utilisateur> inscrireYasmine(Dependances d) async {
     ],
   }), isTrue);
   await s.finaliserProfil(u);
-  return u;
 }
