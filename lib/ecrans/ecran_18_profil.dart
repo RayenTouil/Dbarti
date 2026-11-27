@@ -284,7 +284,7 @@ void afficherAPropos(BuildContext context) => showModalBottomSheet<void>(
               style: Textes.aide,
             ),
             const SizedBox(height: 10),
-            Text('Version 1.0.0', style: Textes.aide),
+            Text('Version 1.1.0', style: Textes.aide),
           ],
         ),
       ),
